@@ -1,6 +1,3 @@
-import {Dispatch} from 'redux';
-import {AppRootType} from './store';
-
 const initialState = {value: 0}
 export type InitialStateType = typeof initialState
 
@@ -26,7 +23,7 @@ export const setValueFromLocalStorageAC = (value: number) => {
         value
     } as const
 }
-//TC
+/*//TC
 export const incValueTC = () => (dispatch: Dispatch, getState: () => AppRootType) => {
     let currentValue = getState().counter.value
     localStorage.setItem('counterValue', JSON.stringify(currentValue + 1))
@@ -40,5 +37,5 @@ export const setValueFromLocalStorageTC = () => (dispatch: Dispatch) => {
         dispatch(setValueFromLocalStorageAC(value))
     } else
         return 0
-}
+}*/
 export type CommonType = ReturnType<typeof incCounterValueAC> | ReturnType<typeof setValueFromLocalStorageAC>

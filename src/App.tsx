@@ -1,22 +1,17 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
 import {useAppDispatch, useAppSelector} from './bll/store';
-import {incValueTC, setValueFromLocalStorageTC} from './bll/counter-reducer';
-
-
+import {incCounterValueAC} from './bll/counter-reducer';
 
 
 function App() {
     const count = useAppSelector<any>(state=>state.counter.value)
     const dispatch = useAppDispatch()
 
-    useEffect(()=>{
-        // со старта получили данные из ЛС
-        dispatch(setValueFromLocalStorageTC())
-    },[dispatch])
+
 
     const incHandler = () => {
-        dispatch(incValueTC())
+        dispatch(incCounterValueAC())
     }
 
     return (
